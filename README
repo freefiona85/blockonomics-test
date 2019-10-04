@@ -1,0 +1,7 @@
+Blockonomics API Wordpress Plugin.
+
+Installation : Upload to Wordpress directly, or use plugin manager.
+
+Shortcode Usage in Wordpress : 
+
+[btc addr=<address> currency=<currency, default USD>]
