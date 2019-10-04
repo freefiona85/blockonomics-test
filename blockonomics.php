@@ -8,10 +8,16 @@
  * Author: Fiorina Liberta
  * Author URI: https://github.com/freefiona85
  */
-wp_register_script('prefix_bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
-wp_enqueue_script('prefix_bootstrap');
-wp_register_style('prefix_bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-wp_enqueue_style('prefix_bootstrap');
+ 
+function enqueue_external_scripts() {
+	wp_register_script('prefix_bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+	wp_register_style('prefix_bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+	wp_enqueue_script('prefix_bootstrap');
+	wp_enqueue_style('prefix_bootstrap');
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_external_scripts' );
+
+
 function show_btc($atts) {
 	$a = shortcode_atts( array(
       'addr' => '1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp'
