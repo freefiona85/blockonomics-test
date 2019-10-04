@@ -8,7 +8,6 @@
  * Author: Fiorina Liberta
  * Author URI: https://github.com/freefiona85
  */
- wp_enqueue_script('copyscript', plugin_dir_url(__FILE__) . 'copyscript.js', array(), '1.0',true);
 function show_btc($atts) {
 	$a = shortcode_atts( array(
       'addr' => '1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp'
