@@ -8,6 +8,10 @@
  * Author: Fiorina Liberta
  * Author URI: https://github.com/freefiona85
  */
+wp_register_script('prefix_bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+wp_enqueue_script('prefix_bootstrap');
+wp_register_style('prefix_bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+wp_enqueue_style('prefix_bootstrap');
 function show_btc($atts) {
 	$a = shortcode_atts( array(
       'addr' => '1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp'
@@ -35,8 +39,8 @@ function show_btc($atts) {
 	$objectfiat = json_decode($pricefiatbody);
 	$fiatrate = (int)$objectfiat->price;
 	$confbalanceinfiat = round($confbalanceinbtc*$fiatrate,2);
-	$cardreturn = "<div class='card'> <ul class='list-group list-group-flush'><li class='list-group-item'><span class='float-left'>Address</span><span class='float-right' >".$a['addr']."</span></li>";
-	$cardreturn .= "<li class='list-group-item'><span class='float-left'>Balance</span><span class='float-right'><span>".$confbalanceinbtc." BTC / </span><span class='float-right'> &nbsp;".$confbalanceinfiat." ".$curr['currency']." </span></span></li></ul></div>";
+	$cardreturn = "<div class='card'> <ul class='list-group list-group-flush'><li class='list-group-item'><span class='float-left'>Address</span><span style='float:right;' >".$a['addr']."</span></li>";
+	$cardreturn .= "<li class='list-group-item'><span class='float-left'>Balance</span><span style='float:right;'><span>".$confbalanceinbtc." BTC / </span><span style='float:right;'> &nbsp;".$confbalanceinfiat." ".$curr['currency']." </span></span></li></ul></div>";
 	return $cardreturn;
 }
 add_shortcode('btc', 'show_btc');
