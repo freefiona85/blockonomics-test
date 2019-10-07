@@ -10,10 +10,8 @@
  */
  
 function enqueue_external_scripts() {
-	wp_register_script('prefix_bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
-	wp_register_style('prefix_bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-	wp_enqueue_script('prefix_bootstrap');
-	wp_enqueue_style('prefix_bootstrap');
+	wp_register_style('mainstyle-card',plugins_url('/css/style.css', __FILE__));
+	wp_enqueue_style('mainstyle-card');
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_external_scripts' );
 
